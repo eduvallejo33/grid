@@ -69,7 +69,47 @@
                    <h3>Acapulco</h3>
                 </div>
              </div>
-           
+            // Función para cargar el contenido del modal
+    function loadModalContent() {
+        // Obtener el contenedor donde se cargará el contenido del modal
+        const cardContentContainer = document.getElementById('cardContentContainer');
+        
+        // Realizar la solicitud para obtener el contenido de indexcard.html
+        fetch('indexcard.html')
+            .then(response => {
+                // Verificar si la solicitud fue exitosa (código de estado 200)
+                if (response.ok) {
+                    // Convertir el contenido de la respuesta a texto
+                    return response.text();
+                } else {
+                    // En caso de error, mostrar un mensaje de error en el contenedor
+                    cardContentContainer.innerHTML = 'Error al cargar el contenido.';
+                    throw new Error('Error al cargar el contenido.');
+                }
+            })
+            .then(html => {
+                // Insertar el contenido obtenido dentro del contenedor
+                cardContentContainer.innerHTML = html;
+            })
+            .catch(error => {
+                // Capturar cualquier error y mostrarlo en la consola
+                console.error('Error:', error);
+            });
+    }
+
+    // Función para abrir el modal y cargar el contenido cuando se hace clic en una imagen
+    function openModal(modalId) {
+        loadModalContent();
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    // Función para cerrar el modal
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+</script>
+
+<script src="scriptgrid.js"></script>
                 <script src="scriptcard.js"></script>
             
         </div>
