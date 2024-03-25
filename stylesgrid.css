@@ -1,0 +1,113 @@
+/* Estilos del grid */
+
+.grid-container {
+    display: grid;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: space-evenly;
+
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.grid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos del botón flotante */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 90%; /* Ancho máximo del modal */
+    max-height: 90%; /* Alto máximo del modal */
+    overflow: auto; /* Habilitar el desplazamiento si el contenido es demasiado grande */
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Estilos específicos del modal container */
+.modal-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.modal-container .panel {
+    text-align: center;
+}
+
+.modal-container .panel img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+}
+ /* Oculta el modal al principio */
+.modal {
+   display: none;
+}
+/* Muestra el modal cuando está abierto */
+.modal:target {
+    display: block;
+    }
+/* Ocultar la barra de desplazamiento cuando el modal está abierto */
+body.modal-open {
+    overflow: hidden;
+}
